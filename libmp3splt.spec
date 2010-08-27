@@ -8,7 +8,7 @@
 
 Name:		libmp3splt
 Version:	0.5.9
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.bz2
 URL:		http://mp3splt.sourceforge.net
@@ -52,6 +52,7 @@ files or to split entire albums to obtain original tracks.
 Summary:	Development files for %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
 This package contains development files for the mp3splt project.
