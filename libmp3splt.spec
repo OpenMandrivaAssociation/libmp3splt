@@ -1,16 +1,14 @@
-# disable str fmt check temporarily to get the package build (wally 08/2010)
-%define Werror_cflags %nil
-
 %define oname	mp3splt
 %define major	0
 %define libname	%mklibname %{oname} %{major}
 %define develname	%mklibname -d %{oname}
 
 Name:		libmp3splt
-Version:	0.5.9
+Version:	0.6
 Release:	%mkrel 2
 Summary:	Library to split MP3 and Ogg Files
-Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
+Patch0:		libmp3splt-0.6-fix_str_fmt.patch
 URL:		http://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
@@ -59,17 +57,19 @@ This package contains development files for the mp3splt project.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p0
 
 %build
-%configure2_5x --disable-rpath
+%configure2_5x \
+	--disable-rpath \
+	--disable-static
 %make
 
 %install
 %makeinstall_std
 
 # we don't want these
-rm -rf %{buildroot}%{_libdir}/libmp3splt.{a,la}
-rm -rf %{buildroot}%{_libdir}/libmp3splt/*.{a,la}
+find %{buildroot} -name "*.la" -exec rm -rf {} \;
 
 %find_lang %{name}
 
@@ -79,10 +79,9 @@ rm -rf %{buildroot}
 %files -n %{libname} -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README TODO
-%{_libdir}/%{name}.so.%{major}
-%{_libdir}/%{name}.so.%{major}.*
-%{_libdir}/%{name}
-%exclude %{_libdir}/%{name}/libsplt_*.so
+%{_libdir}/%{name}.so.%{major}*
+%dir %{_libdir}/%{name}
+%{_libdir}/%{name}/libsplt_*.so.0*
 
 %files -n %{develname}
 %defattr(-,root,root)
