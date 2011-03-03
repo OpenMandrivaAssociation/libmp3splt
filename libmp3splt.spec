@@ -20,6 +20,7 @@ BuildRequires:	libid3tag-devel
 BuildRequires:	zlib-devel
 BuildRequires:	glibc-devel
 BuildRequires:	libltdl-devel
+BuildRequires:	pcre-devel
 
 %description
 The mp3Splt project provides utilities to split mp3 and ogg files,
