@@ -4,7 +4,7 @@
 %define develname	%mklibname -d %{oname}
 
 Name:		libmp3splt
-Version:	0.7
+Version:	0.7.1
 Release:	%mkrel 1
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
