@@ -1,0 +1,166 @@
+diff -urN libmp3splt-0.7/src/oformat_parser.c libmp3splt-0.7-patched/src/oformat_parser.c
+--- libmp3splt-0.7/src/oformat_parser.c	2011-06-27 05:15:34.000000000 +1100
++++ libmp3splt-0.7-patched/src/oformat_parser.c	2011-08-18 22:53:36.731387556 +1100
+@@ -501,7 +501,7 @@
+               int max_number_of_digits = splt_u_get_requested_num_of_digits(state,
+                   state->oformat.format[i], &requested_num_of_digits, SPLT_FALSE);
+ 
+-              snprintf(temp + offset, temp_len, format + 2);
++              snprintf(temp + offset, temp_len, "%s", format + 2);
+ 
+               fm_length = strlen(temp) + 1 + max_number_of_digits;
+               if ((fm = malloc(fm_length * sizeof(char))) == NULL)
+@@ -538,7 +538,7 @@
+           //
+           if (artist_or_performer != NULL)
+           {
+-            snprintf(temp+2,temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2,temp_len, "%s", state->oformat.format[i]+2);
+ 
+             int artist_length = 0;
+             artist_length = strlen(artist_or_performer);
+@@ -546,7 +546,7 @@
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -563,7 +563,7 @@
+           }
+           else
+           {
+-            snprintf(fm, fm_length, temp);
++            snprintf(fm, fm_length, "%s", temp);
+           }
+ 
+           break;
+@@ -584,7 +584,7 @@
+           //
+           if (artist != NULL)
+           {
+-            snprintf(temp+2,temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2,temp_len, "%s", state->oformat.format[i]+2);
+ 
+             int artist_length = 0;
+             artist_length = strlen(artist);
+@@ -592,7 +592,7 @@
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -609,7 +609,7 @@
+           }
+           else
+           {
+-            snprintf(fm, fm_length, temp);
++            snprintf(fm, fm_length, "%s", temp);
+           }
+           break;
+         case 'b':
+@@ -631,13 +631,13 @@
+           {
+             int album_length = 0;
+             album_length = strlen(album);
+-            snprintf(temp+2, temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2, temp_len, "%s", state->oformat.format[i]+2);
+ 
+             fm_length = strlen(temp) + album_length + 1;
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -676,13 +676,13 @@
+           {
+             int genre_length = 0;
+             genre_length = strlen(genre);
+-            snprintf(temp+2, temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2, temp_len, "%s", state->oformat.format[i]+2);
+ 
+             fm_length = strlen(temp) + genre_length + 1;
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -719,13 +719,13 @@
+           {
+             int title_length = 0;
+             title_length = strlen(title);
+-            snprintf(temp+2, temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2, temp_len, "%s", state->oformat.format[i]+2);
+ 
+             fm_length = strlen(temp) + title_length + 1;
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -742,7 +742,7 @@
+           }
+           else
+           {
+-            snprintf(fm, fm_length, temp);
++            snprintf(fm, fm_length, "%s", temp);
+           }
+           break;
+         case 'p':
+@@ -762,13 +762,13 @@
+           {
+             int performer_length = 0;
+             performer_length = strlen(performer);
+-            snprintf(temp+2, temp_len, state->oformat.format[i]+2);
++            snprintf(temp+2, temp_len, "%s", state->oformat.format[i]+2);
+ 
+             fm_length = strlen(temp) + performer_length + 1;
+           }
+           else
+           {
+-            snprintf(temp,temp_len, state->oformat.format[i]+2);
++            snprintf(temp,temp_len, "%s", state->oformat.format[i]+2);
+             fm_length = strlen(temp) + 1;
+           }
+ 
+@@ -784,7 +784,7 @@
+           }
+           else
+           {
+-            snprintf(fm, fm_length, temp);
++            snprintf(fm, fm_length, "%s", temp);
+           }
+           break;
+         case 'l':
+@@ -833,7 +833,7 @@
+           {
+             const char *format = splt_u_get_format_ptr(state->oformat.format[i], temp);
+ 
+-            snprintf(temp + 4, temp_len, format + 2);
++            snprintf(temp + 4, temp_len, "%s", format + 2);
+             fm_length = strlen(temp) + 1 + max_num_of_digits;
+           }
+           else
+@@ -864,7 +864,7 @@
+             original_filename = strdup(splt_su_get_fname_without_path(splt_t_get_filename_to_split(state)));
+             if (original_filename)
+             {
+-              snprintf(temp+2,temp_len, state->oformat.format[i]+2);
++              snprintf(temp+2,temp_len, "%s", state->oformat.format[i]+2);
+ 
+               splt_su_cut_extension(original_filename);
+ 
