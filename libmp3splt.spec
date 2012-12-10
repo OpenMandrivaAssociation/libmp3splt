@@ -90,3 +90,38 @@ rm -rf %{buildroot}
 %{_libdir}/%{name}.so
 %{_libdir}/%{name}/libsplt_*.so
 %{_datadir}/aclocal/%{oname}.m4
+
+
+%changelog
+* Thu Nov 24 2011 Andrey Bondrov <abondrov@mandriva.org> 0.7.1-1mdv2011.0
++ Revision: 733198
+- New version 0.7.1
+
+* Thu Aug 18 2011 Andrey Bondrov <abondrov@mandriva.org> 0.7-1
++ Revision: 695177
+- New version 0.7
+
+* Sun Mar 06 2011 Jani Välimaa <wally@mandriva.org> 0.6.1a-1
++ Revision: 642232
+- new version 0.6.1a
+
+* Thu Mar 03 2011 Jani Välimaa <wally@mandriva.org> 0.6.1-1
++ Revision: 641489
+- add pcre-devel BR
+- new version 0.6.1
+- rediff P0
+
+* Fri Oct 01 2010 Jani Välimaa <wally@mandriva.org> 0.6-2mdv2011.0
++ Revision: 582287
+- new version 0.6
+- add str fmt patch
+- fix file list
+
+* Fri Aug 27 2010 Jani Välimaa <wally@mandriva.org> 0.5.9-2mdv2011.0
++ Revision: 573588
+- fix provides
+
+* Fri Aug 27 2010 Jani Välimaa <wally@mandriva.org> 0.5.9-1mdv2011.0
++ Revision: 573491
+- import libmp3splt
+
