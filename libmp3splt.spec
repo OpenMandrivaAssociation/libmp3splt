@@ -5,7 +5,7 @@
 
 Name:		libmp3splt
 Version:	0.7.1
-Release:	%mkrel 1
+Release:	2
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
 Patch0:		libmp3splt-0.7-formatfix.patch
