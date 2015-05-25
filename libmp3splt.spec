@@ -14,6 +14,7 @@ License:	GPLv2+
 BuildRoot:	%{_tmppath}/build-%{name}-%{version}
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
+BuildRequires:	pkgconfig(flac)
 BuildRequires:	mad-devel
 BuildRequires:	libid3tag-devel
 BuildRequires:	zlib-devel
@@ -83,4 +84,3 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/%{name}0/libsplt_*.so
-%{_datadir}/doc/%{name}
