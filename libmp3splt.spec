@@ -4,11 +4,10 @@
 %define develname	%mklibname -d %{oname}
 
 Name:		libmp3splt
-Version:	0.7.1
-Release:	2
+Version:	0.9.2
+Release:	1
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
-Patch0:		libmp3splt-0.7-formatfix.patch
 URL:		http://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
@@ -58,7 +57,6 @@ This package contains development files for the mp3splt project.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1
 
 %build
 %configure2_5x \
@@ -72,56 +70,17 @@ This package contains development files for the mp3splt project.
 # we don't want these
 find %{buildroot} -name "*.la" -exec rm -rf {} \;
 
-%find_lang %{name}
+%find_lang %{name}0
 
-%clean
-rm -rf %{buildroot}
-
-%files -n %{libname} -f %{name}.lang
-%defattr(-,root,root)
+%files -n %{libname} -f %{name}0.lang
 %doc AUTHORS ChangeLog NEWS README TODO
 %{_libdir}/%{name}.so.%{major}*
-%dir %{_libdir}/%{name}
-%{_libdir}/%{name}/libsplt_*.so.%{major}*
+%dir %{_libdir}/%{name}0
+%{_libdir}/%{name}0/libsplt_*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_includedir}/%{name}
 %{_libdir}/%{name}.so
-%{_libdir}/%{name}/libsplt_*.so
-%{_datadir}/aclocal/%{oname}.m4
-
-
-%changelog
-* Thu Nov 24 2011 Andrey Bondrov <abondrov@mandriva.org> 0.7.1-1mdv2011.0
-+ Revision: 733198
-- New version 0.7.1
-
-* Thu Aug 18 2011 Andrey Bondrov <abondrov@mandriva.org> 0.7-1
-+ Revision: 695177
-- New version 0.7
-
-* Sun Mar 06 2011 Jani Välimaa <wally@mandriva.org> 0.6.1a-1
-+ Revision: 642232
-- new version 0.6.1a
-
-* Thu Mar 03 2011 Jani Välimaa <wally@mandriva.org> 0.6.1-1
-+ Revision: 641489
-- add pcre-devel BR
-- new version 0.6.1
-- rediff P0
-
-* Fri Oct 01 2010 Jani Välimaa <wally@mandriva.org> 0.6-2mdv2011.0
-+ Revision: 582287
-- new version 0.6
-- add str fmt patch
-- fix file list
-
-* Fri Aug 27 2010 Jani Välimaa <wally@mandriva.org> 0.5.9-2mdv2011.0
-+ Revision: 573588
-- fix provides
-
-* Fri Aug 27 2010 Jani Välimaa <wally@mandriva.org> 0.5.9-1mdv2011.0
-+ Revision: 573491
-- import libmp3splt
-
+%{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/%{name}0/libsplt_*.so
+%{_datadir}/doc/%{name}

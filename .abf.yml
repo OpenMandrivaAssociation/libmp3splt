@@ -1,2 +1,4 @@
+removed_sources:
+  libmp3splt-0.7.1.tar.gz: 24b13cada2f41cf1dc616e32a61efa310044df35
 sources:
-  "libmp3splt-0.7.1.tar.gz": 24b13cada2f41cf1dc616e32a61efa310044df35
+  libmp3splt-0.9.2.tar.gz: d4e84e1f466e7fdabe30d0a12acb751903bb9203
