@@ -11,15 +11,14 @@ Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
 URL:		http://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
-BuildRequires:	libogg-devel
-BuildRequires:	libvorbis-devel
+BuildRequires:	pkgconfig(ogg)
+BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(flac)
-BuildRequires:	mad-devel
-BuildRequires:	libid3tag-devel
-BuildRequires:	zlib-devel
-BuildRequires:	glibc-devel
-BuildRequires:	libltdl-devel
-BuildRequires:	pcre-devel
+BuildRequires:	pkgconfig(mad)
+BuildRequires:	pkgconfig(id3tag)
+BuildRequires:	pkgconfig(zlib)
+BuildRequires:	libtool-devel
+BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	doxygen
 
 %description
