@@ -5,13 +5,12 @@
 
 Name:		libmp3splt
 Version:	0.9.2
-Release:	1
+Release:	2
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
 URL:		http://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
-BuildRoot:	%{_tmppath}/build-%{name}-%{version}
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	pkgconfig(flac)
@@ -21,6 +20,7 @@ BuildRequires:	zlib-devel
 BuildRequires:	glibc-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
+BuildRequires:	doxygen
 
 %description
 The mp3Splt project provides utilities to split mp3 and ogg files,
@@ -57,19 +57,14 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains development files for the mp3splt project.
 
 %prep
-%setup -q -n %{name}-%{version}
+%autosetup -p1
+%configure
 
 %build
-%configure2_5x \
-	--disable-rpath \
-	--disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
-
-# we don't want these
-find %{buildroot} -name "*.la" -exec rm -rf {} \;
+%make_install
 
 %find_lang %{name}0
 
@@ -80,6 +75,7 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 %{_libdir}/%{name}0/libsplt_*.so.%{major}*
 
 %files -n %{develname}
+%doc %{_docdir}/libmp3splt/doxygen
 %{_includedir}/%{name}
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
