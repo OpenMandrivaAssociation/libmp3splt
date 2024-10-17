@@ -8,7 +8,7 @@ Version:	0.9.2
 Release:	2
 Summary:	Library to split MP3 and Ogg Files
 Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
-URL:		http://mp3splt.sourceforge.net
+URL:		https://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
 BuildRequires:	pkgconfig(ogg)
