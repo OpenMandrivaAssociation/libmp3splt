@@ -11,6 +11,11 @@ Source0:	http://prdownloads.sourceforge.net/mp3splt/%{name}-%{version}.tar.gz
 URL:		https://mp3splt.sourceforge.net
 Group:		System/Libraries
 License:	GPLv2+
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(flac)
